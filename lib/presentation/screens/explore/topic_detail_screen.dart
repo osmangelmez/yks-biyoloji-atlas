@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../../../core/constants/app_colors.dart';
 import '../../../core/constants/app_spacing.dart';
 
@@ -53,6 +54,9 @@ class TopicDetailScreen extends StatelessWidget {
               (mode) => Padding(
                 padding: const EdgeInsets.only(bottom: AppSpacing.sm),
                 child: ListTile(
+                  onTap: () {
+                    context.push('/quiz/$topicId/${mode['id']}');
+                  },
                   tileColor: AppColors.surface,
                   shape: RoundedRectangleBorder(
                     borderRadius:
@@ -74,9 +78,9 @@ class TopicDetailScreen extends StatelessWidget {
 }
 
 const _modes = [
-  {'title': 'Keşfet ve Öğren', 'icon': Icons.explore},
-  {'title': 'Nokta Atışı', 'icon': Icons.my_location},
-  {'title': 'Parlayanı Bil', 'icon': Icons.lightbulb_outline},
-  {'title': 'Sürükle Bırak', 'icon': Icons.drag_indicator},
-  {'title': 'Akış Tamamlama', 'icon': Icons.account_tree_outlined},
+  {'id': 'explore', 'title': 'Keşfet ve Öğren', 'icon': Icons.explore},
+  {'id': 'pinpoint', 'title': 'Nokta Atışı', 'icon': Icons.my_location},
+  {'id': 'glow', 'title': 'Parlayanı Bil', 'icon': Icons.lightbulb_outline},
+  {'id': 'dragdrop', 'title': 'Sürükle Bırak', 'icon': Icons.drag_indicator},
+  {'id': 'flow', 'title': 'Akış Tamamlama', 'icon': Icons.account_tree_outlined},
 ];
